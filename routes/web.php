@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PlanetController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,6 +40,9 @@ Route::get('/hello', function () {
 Route::get('/user/{id}', function (string $id) {
     return 'User '.$id;
 });
+
+Route::get('/planets', [PlanetController::class, 'index']);
+Route::get('/planets/{id}', [PlanetController::class, 'show']);
 
 Route::get('/posts/{post}/comments/{comment}', function (string $postId, string $commentId) {
     return 'post'.$postId. 'post'. $commentId;
